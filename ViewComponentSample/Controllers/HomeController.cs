@@ -28,5 +28,11 @@ namespace ViewComponentSample.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //https://localhost:7172/home/AjaxCall اکشن زیر را می نویسیم و هرجا مدنظرمان است به آن رکوئست می دهیم.
+        public IActionResult AjaxCall()
+        {
+            return ViewComponent("DailyMessage", new { showDefault = true, appendText = "Ajax ..." });
+        }
     }
 }
