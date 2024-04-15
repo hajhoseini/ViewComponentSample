@@ -12,9 +12,13 @@ namespace ViewComponentSample.Components
             _repository = repository;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(bool showDefault, string appendText)
         {
             var result = _repository.GetDefault();
+
+            if (showDefault)
+                result.Message = $" {result.Message} - {appendText}";
+
             return View(result);
         }
     }
