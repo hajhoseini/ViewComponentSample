@@ -1,3 +1,5 @@
+using ViewComponentSample.Models;
+
 namespace ViewComponentSample
 {
     public class Program
@@ -8,6 +10,7 @@ namespace ViewComponentSample
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<IDailyMessageRepository, DailyMessageRepository>();
 
             var app = builder.Build();
 
